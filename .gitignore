@@ -1,2 +1,39 @@
-src/
 compose.versions.yaml
+env/
+rootCA.pem
+.env
+.env.*
+!.env.example
+
+# 1. Bloquear todo o conteudo da raiz de src (arquivos nativos do Magento)
+/src/*
+
+# 2. Abrir excecao exclusivamente para o seu modulo customizado
+!/src/app/
+/src/app/*
+!/src/app/code/
+/src/app/code/*
+!/src/app/code/Webjump/
+
+# 3. Bloquear caches, logs e ambientes
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+.phpunit.result.cache
+.phpunit.cache/
+.php-cs-fixer.cache
+.phpstan.cache/
+coverage/
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
