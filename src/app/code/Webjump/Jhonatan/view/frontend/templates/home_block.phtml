@@ -1,0 +1,46 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Webjump\Jhonatan\ViewModel\HomeBlock $viewModel */
+$viewModel = $block->getData('view_model');
+?>
+<?php if ($viewModel instanceof \Webjump\Jhonatan\ViewModel\HomeBlock && $viewModel->hasBenefits()): ?>
+    <section class="store-benefits-section" aria-labelledby="store-benefits-heading">
+        <div class="store-benefits-wrapper">
+            <header class="store-benefits-header">
+                <h2 id="store-benefits-heading" class="store-benefits-title">
+                    <?= $block->escapeHtml($viewModel->getSectionTitle()) ?>
+                </h2>
+                <p class="store-benefits-subtitle">
+                    <?= $block->escapeHtml($viewModel->getSectionSubtitle()) ?>
+                </p>
+            </header>
+
+            <ul class="store-benefits-grid" role="list">
+                <?php foreach ($viewModel->getBenefits() as $benefit): ?>
+                    <li class="store-benefit-card">
+                        <div class="store-benefit-icon-container" aria-hidden="true">
+                            <svg class="store-benefit-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="<?= $block->escapeHtmlAttr($benefit['svg_path']) ?>" />
+                            </svg>
+                        </div>
+                        <div class="store-benefit-content">
+                            <div class="store-benefit-top">
+                                <h3 class="store-benefit-item-title">
+                                    <?= $block->escapeHtml($benefit['title']) ?>
+                                </h3>
+                                <?php if (!empty($benefit['tag'])): ?>
+                                    <span class="store-benefit-tag">
+                                        <?= $block->escapeHtml($benefit['tag']) ?>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                            <p class="store-benefit-item-description">
+                                <?= $block->escapeHtml($benefit['description']) ?>
+                            </p>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </section>
+<?php endif; ?>
