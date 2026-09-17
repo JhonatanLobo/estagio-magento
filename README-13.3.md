@@ -227,7 +227,7 @@ Para comprovar o funcionamento de ponta a ponta da configuração customizada e 
 
 * **Análise Visual/Técnica:** Árvore de arquivos do módulo `Webjump_Jhonatan` no VS Code exibindo os 2 arquivos novos do 13.3 (`etc/config.xml` e `etc/adminhtml/system.xml`) e a estrutura herdada dos Desafios 13.1 e 13.2 (Observer, Plugin, view, registration.php). Os arquivos-chave do desafio estão todos visíveis simultaneamente.
 
-<img width="100%" alt="evidencia-01-estrutura-modulo" src="https://github.com/user-attachments/assets/8f28b420-b3a7-4469-8296-c9660e6e6c09" />
+<img width="40%" alt="evidencia-01-estrutura-modulo" src="https://github.com/user-attachments/assets/8f28b420-b3a7-4469-8296-c9660e6e6c09" />
 
 ---
 
