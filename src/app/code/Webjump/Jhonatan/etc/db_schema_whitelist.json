@@ -1,0 +1,20 @@
+{
+    "webjump_avaliacao": {
+        "column": {
+            "avaliacao_id": true,
+            "product_id": true,
+            "autor": true,
+            "comentario": true,
+            "nota": true,
+            "aprovado": true,
+            "created_at": true
+        },
+        "index": {
+            "WEBJUMP_AVALIACAO_PRODUCT_ID": true,
+            "WEBJUMP_AVALIACAO_APROVADO": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
