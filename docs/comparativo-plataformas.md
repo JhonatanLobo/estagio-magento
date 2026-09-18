@@ -1,0 +1,9 @@
+# Shopify, AEM e Magento: o que é igual e o que muda
+
+## O que é igual
+
+Nas três plataformas, a separação entre o que aparece na tela, o que é regra de negócio e o que é dado persistido é a mesma coisa. No AEM o HTL só desenhava, o Sling Model buscava os dados em Java. No Shopify o Liquid só mostrava o que o schema permitia consumir. No Magento acontece exatamente igual: o `.phtml` só exibe, e quem entrega os dados é o ViewModel. Outra coisa que se repete nas três é a regra de nunca tocar no código-fonte original. No AEM isso significava não editar `/libs` e estender via Core Components. No Magento é a mesma ideia, só que o diretório se chama `vendor/` e a extensão acontece via Plugins e Observers. Até a parte de dar autonomia pro time de conteúdo segue o mesmo princípio: os settings da section no Shopify, os dialogs do AEM e o `system.xml` do Magento existem pelo mesmo motivo, que é permitir mudar texto ou comportamento sem precisar chamar o desenvolvedor.
+
+## O que muda
+
+A diferença maior entre as três está em como cada uma lida com infraestrutura e liberdade de customização. O Shopify é SaaS fechado, você não vê servidor nem banco, e em troca perde liberdade em qualquer coisa mais profunda do checkout ou do backend. O AEM é uma plataforma de conteúdo corporativa em Java, boa demais para gerenciar portal grande e campanha multicanal, mas transação pesada ele delega para outro sistema. O Magento é o oposto disso: é uma aplicação PHP que você hospeda onde quiser, o código é todo seu, mas em troca você precisa cuidar de Docker, Nginx, Redis, OpenSearch e da reindexação do EAV, que é o modelo de banco do catálogo dele. Ou seja, Shopify te dá agilidade com limite, AEM te dá governança de conteúdo, e Magento te dá controle total sobre catálogo, regra comercial e checkout, só que com muito mais coisa para gerenciar por conta própria.
