@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="webjump_avaliacao" resource="default" engine="innodb" comment="Tabela de Avaliacoes de Produto - Webjump">
+        <column xsi:type="int" name="avaliacao_id" unsigned="true" nullable="false" identity="true" comment="Chave Primaria da Avaliacao"/>
+        <column xsi:type="int" name="product_id" unsigned="true" nullable="false" comment="ID do Produto Avaliado"/>
+        <column xsi:type="varchar" name="autor" nullable="false" length="255" comment="Nome do Autor da Avaliacao"/>
+        <column xsi:type="text" name="comentario" nullable="true" comment="Texto Descritivo da Avaliacao"/>
+        <column xsi:type="smallint" name="nota" unsigned="true" nullable="false" default="5" comment="Nota de 1 a 5"/>
+        <column xsi:type="boolean" name="aprovado" nullable="false" default="false" comment="Status de Moderacao"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="Data de Criacao"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="avaliacao_id"/>
+        </constraint>
+
+        <index referenceId="WEBJUMP_AVALIACAO_PRODUCT_ID" indexType="btree">
+            <column name="product_id"/>
+        </index>
+        <index referenceId="WEBJUMP_AVALIACAO_APROVADO" indexType="btree">
+            <column name="aprovado"/>
+        </index>
+    </table>
+</schema>
