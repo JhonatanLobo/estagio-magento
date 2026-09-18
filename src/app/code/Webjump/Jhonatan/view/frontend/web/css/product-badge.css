@@ -1,0 +1,43 @@
+.webjump-product-badge-wrapper {
+    margin: 8px 0 12px 0;
+    display: flex;
+    align-items: center;
+}
+
+.webjump-badge-eco {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 9999px;
+    padding: 5px 12px 5px 9px;
+    color: #065f46;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.2px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.webjump-badge-eco:hover {
+    background-color: #d1fae5;
+    border-color: #6ee7b7;
+}
+
+.webjump-badge-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #059669;
+}
+
+.webjump-badge-icon svg {
+    width: 15px;
+    height: 15px;
+    display: block;
+}
+
+.webjump-badge-text {
+    font-family: inherit;
+}
