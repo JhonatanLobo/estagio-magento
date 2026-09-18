@@ -3,18 +3,33 @@ declare(strict_types=1);
 
 namespace Webjump\Jhonatan\ViewModel;
 
+use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 
 class HomeBlock implements ArgumentInterface
 {
+    private const XML_PATH_SECTION_TITLE = 'webjump_jhonatan/home_block/section_title';
+    private const XML_PATH_SECTION_SUBTITLE = 'webjump_jhonatan/home_block/section_subtitle';
+    private const DEFAULT_TITLE = 'Compromissos de Entrega e Atendimento';
+    private const DEFAULT_SUBTITLE = 'Padrões de serviço aplicados diretamente à sua experiência de compra';
+
+    private ScopeConfigInterface $scopeConfig;
+
+    public function __construct(ScopeConfigInterface $scopeConfig)
+    {
+        $this->scopeConfig = $scopeConfig;
+    }
+
     public function getSectionTitle(): string
     {
-        return 'Compromissos de Entrega e Atendimento';
+        $value = $this->scopeConfig->getValue(self::XML_PATH_SECTION_TITLE);
+        return ($value !== null && $value !== '') ? (string)$value : self::DEFAULT_TITLE;
     }
 
     public function getSectionSubtitle(): string
     {
-        return 'Padrões de serviço aplicados diretamente à sua experiência de compra';
+        $value = $this->scopeConfig->getValue(self::XML_PATH_SECTION_SUBTITLE);
+        return ($value !== null && $value !== '') ? (string)$value : self::DEFAULT_SUBTITLE;
     }
 
     /**

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/config.xsd">
+    <default>
+        <webjump_jhonatan>
+            <home_block>
+                <section_title>Compromissos de Entrega e Atendimento</section_title>
+                <section_subtitle>Padrões de serviço aplicados diretamente à sua experiência de compra</section_subtitle>
+            </home_block>
+        </webjump_jhonatan>
+    </default>
+</config>

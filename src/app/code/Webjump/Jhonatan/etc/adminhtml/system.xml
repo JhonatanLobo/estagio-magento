@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="webjump" translate="label" sortOrder="100">
+            <label>Webjump</label>
+        </tab>
+        <section id="webjump_jhonatan" translate="label" sortOrder="10"
+                 showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Configurações Webjump Jhonatan</label>
+            <tab>webjump</tab>
+            <resource>Webjump_Jhonatan::config</resource>
+            <group id="home_block" translate="label" sortOrder="10"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Bloco da Home</label>
+                <field id="section_title" translate="label" type="text" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Título da Seção</label>
+                    <comment>Texto exibido como título no bloco de compromissos da home.</comment>
+                </field>
+                <field id="section_subtitle" translate="label" type="text" sortOrder="20"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Subtítulo da Seção</label>
+                    <comment>Texto exibido como subtítulo no bloco de compromissos da home.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
