@@ -44,6 +44,22 @@
         </settings>
         <bookmark name="bookmarks"/>
         <columnsControls name="columns_controls"/>
+        <exportButton name="export_button">
+            <settings>
+                <options>
+                    <option name="csv" xsi:type="array">
+                        <item name="value" xsi:type="string">csv</item>
+                        <item name="label" xsi:type="string" translate="true">CSV</item>
+                        <item name="url" xsi:type="string">mui/export/gridToCsv</item>
+                    </option>
+                    <option name="xml" xsi:type="array">
+                        <item name="value" xsi:type="string">xml</item>
+                        <item name="label" xsi:type="string" translate="true">Excel XML</item>
+                        <item name="url" xsi:type="string">mui/export/gridToXml</item>
+                    </option>
+                </options>
+            </settings>
+        </exportButton>
         <filters name="listing_filters"/>
         <massaction name="listing_massaction">
             <action name="delete">
@@ -128,5 +144,12 @@
                 <label translate="true">Criado em</label>
             </settings>
         </column>
+
+        <actionsColumn name="actions" class="Webjump\Jhonatan\Ui\Component\Listing\Column\AvaliacaoActions">
+            <settings>
+                <indexField>avaliacao_id</indexField>
+                <label translate="true">Ações</label>
+            </settings>
+        </actionsColumn>
     </columns>
 </listing>
