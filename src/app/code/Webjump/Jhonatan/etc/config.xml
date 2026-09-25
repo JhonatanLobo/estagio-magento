@@ -1,12 +1,21 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/config.xsd">
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
+        <!-- Configurações legadas da Sprint 6 (Desafio 13.3) -->
         <webjump_jhonatan>
             <home_block>
                 <section_title>Compromissos de Entrega e Atendimento</section_title>
                 <section_subtitle>Padrões de serviço aplicados diretamente à sua experiência de compra</section_subtitle>
             </home_block>
         </webjump_jhonatan>
+
+        <!-- Configurações padrão da Sprint 7 (Desafio 15.2) -->
+        <webjump_avaliacao>
+            <geral>
+                <ativo>1</ativo>
+                <nota_minima>3</nota_minima>
+            </geral>
+        </webjump_avaliacao>
     </default>
 </config>
