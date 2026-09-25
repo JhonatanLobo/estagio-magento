@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Webjump_Jhonatan::webjump"
+             title="Webjump"
+             module="Webjump_Jhonatan"
+             sortOrder="50"
+             resource="Webjump_Jhonatan::webjump"/>
+
+        <add id="Webjump_Jhonatan::avaliacao"
+             title="Avaliações"
+             module="Webjump_Jhonatan"
+             sortOrder="10"
+             parent="Webjump_Jhonatan::webjump"
+             action="webjump_avaliacao/avaliacao/index"
+             resource="Webjump_Jhonatan::avaliacao"/>
+    </menu>
+</config>

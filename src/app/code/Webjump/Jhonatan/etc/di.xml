@@ -7,4 +7,12 @@
                 type="Webjump\Jhonatan\Model\Avaliacao"/>
     <preference for="Webjump\Jhonatan\Api\Data\AvaliacaoSearchResultsInterface"
                 type="Webjump\Jhonatan\Model\AvaliacaoSearchResults"/>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="webjump_avaliacao_listing_data_source" xsi:type="string">Webjump\Jhonatan\Model\ResourceModel\Avaliacao\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
 </config>
