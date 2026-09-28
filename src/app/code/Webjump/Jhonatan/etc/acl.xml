@@ -5,9 +5,8 @@
         <resources>
             <resource id="Magento_Backend::admin">
                 <resource id="Webjump_Jhonatan::webjump" title="Webjump" sortOrder="50">
-                    <resource id="Webjump_Jhonatan::avaliacao" title="Avaliações" sortOrder="10">
-                        <resource id="Webjump_Jhonatan::avaliacao_export" title="Exportar Avaliações" sortOrder="20"/>
-                    </resource>
+                    <resource id="Webjump_Jhonatan::avaliacao" title="Avaliações" sortOrder="10"/>
+                    <resource id="Webjump_Jhonatan::avaliacao_export" title="Exportar Avaliações" sortOrder="20"/>
                 </resource>
             </resource>
         </resources>
