@@ -5,6 +5,8 @@
         <tab id="webjump" translate="label" sortOrder="100">
             <label>Webjump</label>
         </tab>
+
+        <!-- Seção legada da Sprint 6 (Desafio 13.3) -->
         <section id="webjump_jhonatan" translate="label" sortOrder="10"
                  showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Configurações Webjump Jhonatan</label>
@@ -22,6 +24,32 @@
                        showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Subtítulo da Seção</label>
                     <comment>Texto exibido como subtítulo no bloco de compromissos da home.</comment>
+                </field>
+            </group>
+        </section>
+
+        <!-- Nova seção da Sprint 7 (Desafio 15.2) -->
+        <section id="webjump_avaliacao" translate="label" sortOrder="20"
+                 showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Avaliações de Produtos</label>
+            <tab>webjump</tab>
+            <resource>Webjump_Jhonatan::avaliacao</resource>
+            <group id="geral" translate="label" sortOrder="10"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Configurações Gerais de Avaliação</label>
+
+                <field id="ativo" translate="label" type="select" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Habilitar Módulo de Avaliações</label>
+                    <comment>Se desmarcado, recursos públicos e selos são suprimidos na vitrine.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="nota_minima" translate="label" type="text" sortOrder="20"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Nota Mínima para Exibição Pública</label>
+                    <validate>validate-digits</validate>
+                    <comment>Define a nota de corte (1 a 5) para elegibilidade de produtos.</comment>
                 </field>
             </group>
         </section>

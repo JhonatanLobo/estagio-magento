@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">webjump_avaliacao_listing.webjump_avaliacao_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>webjump_avaliacao_columns</spinner>
+        <deps>
+            <dep>webjump_avaliacao_listing.webjump_avaliacao_listing_data_source</dep>
+        </deps>
+        <buttons>
+            <button name="add">
+                <url path="*/*/new"/>
+                <class>primary</class>
+                <label translate="true">Nova Avaliação</label>
+            </button>
+        </buttons>
+    </settings>
+
+    <dataSource name="webjump_avaliacao_listing_data_source"
+                component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">avaliacao_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Webjump_Jhonatan::avaliacao</aclResource>
+        <dataProvider name="webjump_avaliacao_listing_data_source"
+                      class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+            <settings>
+                <requestFieldName>avaliacao_id</requestFieldName>
+                <primaryFieldName>avaliacao_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <exportButton name="export_button">
+            <settings>
+                <options>
+                    <option name="csv" xsi:type="array">
+                        <item name="value" xsi:type="string">csv</item>
+                        <item name="label" xsi:type="string" translate="true">CSV</item>
+                        <item name="url" xsi:type="string">webjump_avaliacao/export/gridToCsv</item>
+                    </option>
+                    <option name="xml" xsi:type="array">
+                        <item name="value" xsi:type="string">xml</item>
+                        <item name="label" xsi:type="string" translate="true">Excel XML</item>
+                        <item name="url" xsi:type="string">webjump_avaliacao/export/gridToXml</item>
+                    </option>
+                </options>
+            </settings>
+        </exportButton>
+        <filters name="listing_filters"/>
+        <massaction name="listing_massaction">
+            <action name="delete">
+                <settings>
+                    <confirm>
+                        <message translate="true">Tem certeza de que deseja excluir as avaliações selecionadas?</message>
+                        <title translate="true">Excluir Avaliações</title>
+                    </confirm>
+                    <url path="webjump_avaliacao/avaliacao/massDelete"/>
+                    <type>delete</type>
+                    <label translate="true">Excluir</label>
+                </settings>
+            </action>
+            <action name="aprovar">
+                <settings>
+                    <url path="webjump_avaliacao/avaliacao/massApprove"/>
+                    <type>aprovar</type>
+                    <label translate="true">Aprovar</label>
+                </settings>
+            </action>
+        </massaction>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+
+    <columns name="webjump_avaliacao_columns">
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>avaliacao_id</indexField>
+            </settings>
+        </selectionsColumn>
+
+        <column name="avaliacao_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+
+        <column name="product_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID do Produto</label>
+            </settings>
+        </column>
+
+        <column name="autor">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Autor</label>
+            </settings>
+        </column>
+
+        <column name="comentario">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Comentário</label>
+            </settings>
+        </column>
+
+        <column name="nota">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Nota</label>
+            </settings>
+        </column>
+
+        <column name="aprovado" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <options class="Magento\Config\Model\Config\Source\Yesno"/>
+                <filter>select</filter>
+                <dataType>select</dataType>
+                <label translate="true">Status</label>
+            </settings>
+        </column>
+
+        <column name="created_at"
+                class="Magento\Ui\Component\Listing\Columns\Date"
+                component="Magento_Ui/js/grid/columns/date">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Criado em</label>
+            </settings>
+        </column>
+
+        <actionsColumn name="actions" class="Webjump\Jhonatan\Ui\Component\Listing\Column\AvaliacaoActions">
+            <settings>
+                <indexField>avaliacao_id</indexField>
+                <label translate="true">Ações</label>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

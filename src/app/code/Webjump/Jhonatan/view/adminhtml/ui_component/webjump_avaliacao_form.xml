@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="component" xsi:type="string">Magento_Ui/js/form/form</item>
+            <item name="provider" xsi:type="string">webjump_avaliacao_form.avaliacao_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Informações da Avaliação</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="reverseMetadataCache" xsi:type="boolean">true</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="back" class="Webjump\Jhonatan\Block\Adminhtml\Avaliacao\Edit\BackButton"/>
+            <button name="delete" class="Webjump\Jhonatan\Block\Adminhtml\Avaliacao\Edit\DeleteButton"/>
+            <button name="save_and_continue" class="Webjump\Jhonatan\Block\Adminhtml\Avaliacao\Edit\SaveAndContinueButton"/>
+            <button name="save" class="Webjump\Jhonatan\Block\Adminhtml\Avaliacao\Edit\SaveButton"/>
+        </buttons>
+        <namespace>webjump_avaliacao_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>webjump_avaliacao_form.avaliacao_form_data_source</dep>
+        </deps>
+    </settings>
+
+    <dataSource name="avaliacao_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="webjump_avaliacao/avaliacao/save"/>
+        </settings>
+        <dataProvider name="avaliacao_form_data_source"
+                      class="Webjump\Jhonatan\Model\Avaliacao\DataProvider">
+            <settings>
+                <requestFieldName>avaliacao_id</requestFieldName>
+                <primaryFieldName>avaliacao_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <fieldset name="general">
+        <settings>
+            <label translate="true">Dados Principais da Avaliação</label>
+        </settings>
+
+        <field name="avaliacao_id" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <visible>false</visible>
+            </settings>
+        </field>
+
+        <field name="product_id" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">ID do Produto</label>
+                <notice translate="true">Informe o identificador numérico da entidade de produto avaliada.</notice>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                    <rule name="validate-digits" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+
+        <field name="autor" formElement="input">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Nome do Autor</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+
+        <field name="nota" formElement="select">
+            <settings>
+                <dataType>number</dataType>
+                <label translate="true">Nota da Avaliação</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Webjump\Jhonatan\Model\Config\Source\Nota"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+
+        <field name="aprovado" formElement="select">
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Status de Moderação</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Magento\Config\Model\Config\Source\Yesno"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+
+        <field name="comentario" formElement="textarea">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Comentário do Cliente</label>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+    </fieldset>
+</form>
