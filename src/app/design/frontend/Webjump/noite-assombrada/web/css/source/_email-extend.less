@@ -1,0 +1,173 @@
+// app/design/frontend/Webjump/noite-assombrada/web/css/source/_email-extend.less
+@color-abobora: #FF6B1A;
+@color-roxo-noite: #2A1B3D;
+@color-verde-bruxa: #7CFF6B;
+@color-cinza-neblina: #B8B8C4;
+@color-branco-gelo: #EDE7F6;
+
+body,
+.body,
+html {
+    background-color: @color-roxo-noite !important;
+    color: @color-branco-gelo !important;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+table.main,
+.main,
+.email-summary,
+.email-information,
+.email-intro,
+td.main-content,
+table.main > tbody > tr > td {
+    background-color: darken(@color-roxo-noite, 4%) !important;
+    color: @color-branco-gelo !important;
+    border: 1px solid @color-abobora !important;
+}
+
+.header {
+    background-color: darken(@color-roxo-noite, 8%) !important;
+    border-bottom: 3px solid @color-abobora;
+    padding: 24px;
+    text-align: center;
+}
+
+.greeting,
+h1 {
+    color: @color-abobora !important;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.halloween-email-intro {
+    color: @color-verde-bruxa !important;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 16px 0;
+}
+
+p, span, td {
+    color: @color-branco-gelo !important;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+table.order-details,
+table.email-items {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+
+    th {
+        background-color: darken(@color-roxo-noite, 6%) !important;
+        color: @color-abobora !important;
+        border-bottom: 2px solid @color-abobora;
+        padding: 10px;
+        text-align: left;
+    }
+
+    td {
+        border-bottom: 1px solid lighten(@color-roxo-noite, 10%);
+        padding: 10px;
+        color: @color-branco-gelo !important;
+    }
+}
+
+// ---------------------------------------------
+// Correcao da tabela de totais (Subtotal / Frete / Total)
+// ---------------------------------------------
+table.totals,
+table.order-totals,
+.totals,
+table:has(.subtotal),
+table:has(.grand_total) {
+    background-color: darken(@color-roxo-noite, 4%) !important;
+
+    tr.subtotal,
+    tr.shipping,
+    tr.shipping-handling,
+    tr.grand_total,
+    tr.tax,
+    tr.discount {
+        background-color: darken(@color-roxo-noite, 4%) !important;
+
+        th,
+        th.mark,
+        td,
+        td.amount,
+        td.mark {
+            background-color: darken(@color-roxo-noite, 4%) !important;
+            color: @color-branco-gelo !important;
+            border-color: lighten(@color-roxo-noite, 10%) !important;
+        }
+
+        th.mark,
+        td.mark {
+            color: @color-cinza-neblina !important;
+        }
+
+        td.amount,
+        td.amount .price {
+            color: @color-abobora !important;
+            font-weight: bold;
+        }
+    }
+
+    tr.grand_total {
+        th,
+        th.mark,
+        td,
+        td.amount,
+        td.amount .price {
+            color: @color-abobora !important;
+            font-size: 16px;
+            font-weight: bold;
+            border-top: 2px solid @color-abobora !important;
+        }
+    }
+}
+
+// Regra generica para capturar qualquer celula com .amount ou .price
+td.amount,
+td.amount .price,
+.amount,
+.price {
+    background-color: transparent !important;
+}
+
+td.amount {
+    background-color: darken(@color-roxo-noite, 4%) !important;
+    color: @color-abobora !important;
+}
+
+td.amount .price {
+    color: @color-abobora !important;
+    font-weight: bold;
+}
+
+.footer {
+    border-top: 2px solid @color-abobora;
+    background-color: darken(@color-roxo-noite, 10%) !important;
+    color: @color-cinza-neblina !important;
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+}
+
+// Override para os totais do e-mail (seletor compativel com inline)
+.email-items tfoot tr th,
+.email-items tfoot tr td,
+table.order-totals tr th,
+table.order-totals tr td,
+.order-totals th,
+.order-totals td {
+    background-color: darken(@color-roxo-noite, 4%) !important;
+    color: @color-abobora !important;
+    border-color: lighten(@color-roxo-noite, 10%) !important;
+}
+
+.email-items tfoot tr td .price,
+.order-totals td .price {
+    color: @color-abobora !important;
+    font-weight: bold;
+}
