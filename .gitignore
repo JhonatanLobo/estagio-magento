@@ -8,12 +8,21 @@ rootCA.pem
 # 1. Bloquear todo o conteudo da raiz de src (arquivos nativos do Magento)
 /src/*
 
-# 2. Abrir excecao exclusivamente para o seu modulo customizado
+# 2. Abrir excecao exclusivamente para modulo e tema customizados
 !/src/app/
 /src/app/*
+
+# Modulo PHP
 !/src/app/code/
 /src/app/code/*
 !/src/app/code/Webjump/
+
+# Tema Frontend
+!/src/app/design/
+/src/app/design/*
+!/src/app/design/frontend/
+/src/app/design/frontend/*
+!/src/app/design/frontend/Webjump/
 
 # 3. Bloquear caches, logs e ambientes
 .idea/
