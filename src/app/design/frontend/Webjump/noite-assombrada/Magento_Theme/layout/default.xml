@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- 1. Mover a busca global para o painel do topo -->
+        <move element="top.search" destination="header.panel" after="-"/>
+
+        <!-- 2. Remover a barra de comparação lateral que polui a navegação -->
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+
+        <!-- 3. Injetar a faixa de campanha no topo de todas as páginas da loja -->
+        <referenceContainer name="page.top">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="halloween.faixa"
+                   before="-"
+                   template="Magento_Theme::html/faixa-halloween.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

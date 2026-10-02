@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="webjump_halloween_order_template"
+              label="Confirmacao do Pedido - Noite Assombrada"
+              file="order_new.html"
+              type="html"
+              module="Webjump_Jhonatan"
+              area="frontend"/>
+</config>

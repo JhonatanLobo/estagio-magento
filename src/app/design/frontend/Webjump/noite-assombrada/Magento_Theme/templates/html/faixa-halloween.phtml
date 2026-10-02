@@ -1,0 +1,18 @@
+<?php
+/**
+ * Webjump Theme - Faixa de Campanha Halloween
+ *
+ * @var \Magento\Framework\View\Element\Template $block
+ */
+?>
+<div class="halloween-banner" role="banner" aria-label="<?= $block->escapeHtmlAttr(__('Faixa Promocional de Halloween')) ?>">
+    <span class="halloween-banner__title">
+        <?= $block->escapeHtml(__('Noite Assombrada')) ?>
+    </span>
+    <span class="halloween-banner__text">
+        <?= $block->escapeHtml(__('Descontos que assombram o catálogo até 31 de outubro!')) ?>
+    </span>
+    <a class="halloween-banner__action" href="<?= $block->escapeUrl($block->getUrl('perifericos.html')) ?>">
+        <?= $block->escapeHtml(__('Ver ofertas')) ?>
+    </a>
+</div>
