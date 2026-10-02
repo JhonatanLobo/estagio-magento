@@ -1,0 +1,314 @@
+/**
+ * Webjump Theme Extension Stylesheet
+ *
+ * @category    design
+ * @package     Webjump_NoiteAssombrada
+ * @description Theme-specific component styles and responsive layouts for Sprint 16.1
+ */
+
+//
+//  Typography
+//  ---------------------------------------------
+@font-face {
+    font-family: 'Creepster';
+    src: url('@{baseDir}fonts/Creepster/creepster-regular.woff2') format('woff2'),
+         url('@{baseDir}fonts/Creepster/creepster-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+//
+//  Common Theme Rules (Desktop & Mobile)
+//  ---------------------------------------------
+& when (@media-common = true) {
+
+    // Global Canvas & Headings
+    body, .page-wrapper, .page-main, .main {
+        background-color: @color-roxo-noite;
+        color: @color-branco-gelo;
+    }
+
+    .page-title-wrapper .page-title {
+        font-family: 'Creepster', cursive, sans-serif !important;
+        color: @color-abobora;
+        letter-spacing: .05em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, .6);
+    }
+
+    .block-title strong,
+    .sidebar .block-title strong {
+        font-family: @font-family__base !important;
+        font-weight: 700;
+    }
+
+    // Header & Search
+    .page-header {
+        border-bottom: 2px solid @color-abobora;
+
+        .block-search input {
+            background-color: lighten(@color-roxo-noite, 8%);
+            color: #fff;
+            border: 1px solid lighten(@color-roxo-noite, 22%);
+
+            &::placeholder { color: @color-cinza-neblina; }
+            &:focus { border-color: @color-abobora; }
+        }
+    }
+
+    .nav-sections {
+        border-bottom: 1px solid lighten(@color-roxo-noite, 12%);
+    }
+
+    // Sidebar (Posicionamento Original Estável)
+    .sidebar .block {
+        border: 1px solid lighten(@color-roxo-noite, 10%);
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 20px;
+
+        .block-title strong {
+            color: @color-abobora !important;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+        }
+
+        .block-content {
+            color: @color-cinza-neblina;
+            font-size: 1.3rem;
+            margin-top: 8px;
+        }
+    }
+
+    // Catalog: Shared Card Styles
+    .products.wrapper {
+        .toolbar-amount, .toolbar-sorter { color: @color-cinza-neblina; }
+    }
+
+    .products-grid,
+    .products-list {
+        .product-item-info {
+            background-color: lighten(@color-roxo-noite, 4%) !important;
+            border: 1px solid lighten(@color-roxo-noite, 12%) !important;
+            border-radius: 10px;
+            transition: all .3s ease;
+
+            &:hover {
+                background-color: lighten(@color-roxo-noite, 7%) !important;
+                border-color: @color-abobora !important;
+                box-shadow: 0 4px 18px rgba(0, 0, 0, .45);
+            }
+        }
+
+        .product-item-name a {
+            color: @color-branco-gelo;
+            font-weight: 600;
+            line-height: 1.3;
+            &:hover { color: @color-verde-bruxa; }
+        }
+
+        .price-box {
+            margin: 0 0 12px;
+            .price {
+                color: @color-abobora;
+                font-weight: 700;
+                font-size: 2.2rem;
+            }
+        }
+
+        .action.tocart {
+            border-radius: 4px;
+            font-weight: bold;
+        }
+    }
+
+    // Catalog: List Mode (Simetria Rigorosa de 24px e Fim do Letterboxing)
+    .products-list {
+        .product-items { margin: 0; padding: 0; list-style: none; }
+        .product-item { width: 100% !important; margin-bottom: 20px; }
+
+        .product-item-info {
+            width: 100% !important;
+            box-sizing: border-box !important;
+            display: flex !important;
+            min-height: 0 !important;
+            margin: 0 !important;
+        }
+
+        .product-item-photo {
+            float: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            line-height: 0 !important;
+        }
+
+        .product-image-container {
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #120b1c !important;
+            border: 1px solid lighten(@color-roxo-noite, 15%);
+            display: block !important;
+            position: relative !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .product-image-wrapper {
+            width: 100% !important;
+            height: 100% !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            display: block !important;
+            position: relative !important;
+            overflow: hidden;
+        }
+
+        .product-image-photo {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            object-position: center !important;
+            border-radius: 6px;
+            margin: 0 !important;
+        }
+
+        .product-item-details {
+            float: none !important;
+            margin: 0 !important;
+            flex: 1 1 auto;
+            min-width: 0;
+
+            .product-item-name { margin: 0 0 8px; a { font-size: 1.8rem; } }
+            .product-item-actions { margin: 0 0 8px; }
+            .product-item-inner { margin: 0 !important; padding: 0 !important; }
+
+            > *:last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+    }
+
+    // Catalog: Grid Mode
+    .products-grid {
+        .product-item-info { padding: 16px; }
+        .product-image-container {
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid lighten(@color-roxo-noite, 15%);
+        }
+        .product-item-name a { font-size: 1.6rem; }
+    }
+
+    // Product Detail Page (PDP)
+    .catalog-product-view {
+        .product-info-main .price-box .price {
+            color: @color-abobora;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .product.media .product-image-container {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid lighten(@color-roxo-noite, 15%);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .4);
+        }
+    }
+
+    // Global Footer
+    .page-footer {
+        border-top: 2px solid @color-abobora;
+        margin-top: 60px;
+        padding: 35px 0 20px;
+
+        .footer.content {
+            background-color: transparent !important;
+            border-top: none;
+            max-width: 1280px;
+            margin: 0 auto;
+
+            .copyright {
+                margin-top: 25px;
+                padding: 12px;
+                display: block;
+                text-align: center;
+            }
+        }
+    }
+}
+
+//
+//  Mobile Viewport (<= 768px)
+//  ---------------------------------------------
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .action.nav-toggle:before,
+    .minicart-wrapper .action.showcart:before {
+        color: @color-abobora !important;
+    }
+
+    .products-list {
+        .product-item-info {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            padding: 16px !important;
+            gap: 16px !important;
+        }
+
+        .product-item-photo {
+            flex: 0 0 190px !important;
+            width: 190px !important;
+            height: 190px !important;
+            margin: 0 auto !important;
+        }
+
+        .product-image-container {
+            width: 190px !important;
+            max-width: 190px !important;
+            height: 190px !important;
+            margin: 0 auto !important;
+        }
+
+        .product-item-details { width: 100% !important; }
+
+        .product-item-actions .action.tocart {
+            width: 100% !important;
+            padding: 12px 20px !important;
+            font-size: 1.6rem !important;
+        }
+    }
+}
+
+//
+//  Desktop Viewport (>= 768px)
+//  ---------------------------------------------
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .products-list {
+        .product-item-info {
+            flex-direction: row !important;
+            align-items: center !important;
+            text-align: left !important;
+            padding: 24px !important; // 24px simétricos em toda a volta da imagem
+            gap: 24px !important;
+        }
+
+        .product-item-photo {
+            flex: 0 0 180px !important;
+            width: 180px !important;
+            height: 180px !important;
+        }
+
+        .product-image-container {
+            width: 180px !important;
+            max-width: 180px !important;
+            height: 180px !important;
+        }
+
+        .product-item-details {
+            padding: 0 !important;
+        }
+    }
+}
