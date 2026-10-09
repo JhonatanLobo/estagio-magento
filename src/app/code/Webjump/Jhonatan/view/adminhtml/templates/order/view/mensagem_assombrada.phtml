@@ -1,0 +1,15 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Webjump\Jhonatan\ViewModel\Order\MensagemAssombrada $viewModel */
+$viewModel = $block->getData('view_model');
+?>
+<?php if ($viewModel instanceof \Webjump\Jhonatan\ViewModel\Order\MensagemAssombrada && $viewModel->hasMensagem()): ?>
+<div class="admin__page-section-item order-mensagem-assombrada">
+    <div class="admin__page-section-item-title">
+        <span class="title"><?= $block->escapeHtml(__('Mensagem Assombrada')) ?></span>
+    </div>
+    <div class="admin__page-section-item-content">
+        <?= $block->escapeHtml($viewModel->getMensagem()) ?>
+    </div>
+</div>
+<?php endif; ?>
