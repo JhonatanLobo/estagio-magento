@@ -1,0 +1,15 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Webjump\Jhonatan\ViewModel\ProductBadge $viewModel
+ */
+$viewModel = $block->getData('view_model');
+?>
+<?php if ($viewModel instanceof \Webjump\Jhonatan\ViewModel\ProductBadge && $viewModel->isSustentavel()): ?>
+    <div class="halloween-product-badge halloween-product-badge--pdp" role="status">
+        <span class="halloween-product-badge__tag">
+            <span class="halloween-product-badge__icon" aria-hidden="true">&#x1F383;</span>
+            <?= $block->escapeHtml(__('Produto Assombrado')) ?>
+        </span>
+    </div>
+<?php endif; ?>
