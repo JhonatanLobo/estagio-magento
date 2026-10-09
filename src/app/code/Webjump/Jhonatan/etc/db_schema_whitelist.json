@@ -16,5 +16,15 @@
         "constraint": {
             "PRIMARY": true
         }
+    },
+    "quote_address": {
+        "column": {
+            "mensagem_assombrada": true
+        }
+    },
+    "sales_order": {
+        "column": {
+            "mensagem_assombrada": true
+        }
     }
 }
