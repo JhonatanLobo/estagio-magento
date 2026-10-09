@@ -1,0 +1,16 @@
+<div class="halloween-countdown" role="timer" aria-live="polite">
+    <!-- ko ifnot: expirado -->
+    <div class="halloween-countdown__active">
+        <span class="halloween-countdown__icon" aria-hidden="true">&#x1F383;</span>
+        <span class="halloween-countdown__label" data-bind="text: labelContador"></span>
+        <span class="halloween-countdown__timer" data-bind="text: mensagemContador"></span>
+    </div>
+    <!-- /ko -->
+
+    <!-- ko if: expirado -->
+    <div class="halloween-countdown__expired">
+        <span class="halloween-countdown__icon" aria-hidden="true">&#x1F47B;</span>
+        <span class="halloween-countdown__text" data-bind="text: mensagemContador"></span>
+    </div>
+    <!-- /ko -->
+</div>

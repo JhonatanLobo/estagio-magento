@@ -1,0 +1,23 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ */
+?>
+<div class="halloween-countdown-wrapper" data-bind="scope: 'halloweenCountdown'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "halloweenCountdown": {
+                    "component": "Webjump_Jhonatan/js/contador",
+                    "dataFinal": "2026-10-31 23:59:59"
+                }
+            }
+        }
+    }
+}
+</script>
