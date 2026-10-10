@@ -1,0 +1,31 @@
+<div class="pagebuilder-content-type pagebuilder-caixao-ofertas type-nested"
+     event="{ mouseover: onMouseOver, mouseout: onMouseOut }, mouseoverBubble: false">
+    <render args="getOptions().template"></render>
+    <div class="caixao-ofertas-wrapper"
+         attr="data.main.attributes"
+         ko-style="data.main.style"
+         css="data.main.css">
+        <div class="caixao-ofertas-image">
+            <!-- ko if: data.image.attributes().src -->
+            <img attr="data.image.attributes"
+                 ko-style="data.image.style"
+                 css="data.image.css"/>
+            <!-- /ko -->
+            <!-- ko ifnot: data.image.attributes().src -->
+            <div class="caixao-ofertas-image-placeholder">
+                <span class="placeholder-icon" aria-hidden="true">&#x1F383;</span>
+                <span class="placeholder-text" translate="'Selecione uma imagem para o caixão'"></span>
+            </div>
+            <!-- /ko -->
+        </div>
+        <div class="caixao-ofertas-content">
+            <h3 class="caixao-ofertas-title"
+                attr="data.title.attributes"
+                html="data.title.html() || 'Título da Oferta Assombrada'"></h3>
+            <p class="caixao-ofertas-text"
+               attr="data.text.attributes"
+               html="data.text.html() || 'Descreva aqui a oferta que o time de marketing está promovendo.'"></p>
+            <span class="caixao-ofertas-button" translate="'Ver Oferta'"></span>
+        </div>
+    </div>
+</div>
