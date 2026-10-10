@@ -1,0 +1,71 @@
+//
+// Page Builder - Caixao de Ofertas (identidade Noite Assombrada)
+// ---------------------------------------------
+
+& when (@media-common = true) {
+    [data-content-type='caixao_ofertas'] {
+        .caixao-ofertas-wrapper {
+            background: linear-gradient(135deg, darken(@color-roxo-noite, 4%) 0%, @color-roxo-noite 100%);
+            border: 2px solid @color-abobora;
+            border-radius: 12px;
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.5),
+                inset 0 0 30px rgba(255, 107, 26, 0.08);
+            padding: 28px;
+            gap: 28px;
+            transition:
+                border-color 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.3s ease;
+        }
+
+        .caixao-ofertas-link:hover .caixao-ofertas-wrapper {
+            border-color: @color-verde-bruxa;
+            box-shadow:
+                0 14px 40px rgba(255, 107, 26, 0.25),
+                0 0 25px rgba(124, 255, 107, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .caixao-ofertas-image {
+            img {
+                border: 1px solid rgba(255, 107, 26, 0.3);
+                border-radius: 8px;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        .caixao-ofertas-title {
+            font-family: 'Creepster', cursive, sans-serif;
+            color: @color-abobora;
+            letter-spacing: 0.04em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .caixao-ofertas-text {
+            color: @color-cinza-neblina;
+            font-size: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .caixao-ofertas-button {
+            background: @color-abobora;
+            color: @color-roxo-noite;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            border-radius: 999px;
+            padding: 12px 26px;
+            box-shadow: 0 4px 14px rgba(255, 107, 26, 0.4);
+        }
+
+        .caixao-ofertas-link:hover .caixao-ofertas-button {
+            background: @color-verde-bruxa;
+            color: @color-roxo-noite;
+        }
+
+        .caixao-ofertas-image-placeholder {
+            border-color: rgba(255, 107, 26, 0.4);
+            color: @color-cinza-neblina;
+        }
+    }
+}
