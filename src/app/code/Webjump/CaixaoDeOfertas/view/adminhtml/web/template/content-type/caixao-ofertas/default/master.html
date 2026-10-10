@@ -1,0 +1,55 @@
+<div class="caixao-ofertas-block"
+     attr="data.main.attributes"
+     ko-style="data.main.style"
+     css="data.main.css">
+    <a if="data.link.attributes().href"
+       class="caixao-ofertas-link"
+       attr="data.link.attributes"
+       ko-style="data.link.style"
+       css="data.link.css">
+        <div class="caixao-ofertas-wrapper">
+            <div class="caixao-ofertas-image">
+                <img if="data.image.attributes().src"
+                     attr="data.image.attributes"
+                     ko-style="data.image.style"
+                     css="data.image.css"/>
+            </div>
+            <div class="caixao-ofertas-content">
+                <h3 if="data.title.html()"
+                    class="caixao-ofertas-title"
+                    attr="data.title.attributes"
+                    html="data.title.html"></h3>
+                <p if="data.text.html()"
+                   class="caixao-ofertas-text"
+                   attr="data.text.attributes"
+                   html="data.text.html"></p>
+                <span class="caixao-ofertas-button">Ver Oferta</span>
+            </div>
+        </div>
+    </a>
+    <div ifnot="data.link.attributes().href"
+         class="caixao-ofertas-link"
+         attr="data.empty_link.attributes"
+         ko-style="data.empty_link.style"
+         css="data.empty_link.css">
+        <div class="caixao-ofertas-wrapper">
+            <div class="caixao-ofertas-image">
+                <img if="data.image.attributes().src"
+                     attr="data.image.attributes"
+                     ko-style="data.image.style"
+                     css="data.image.css"/>
+            </div>
+            <div class="caixao-ofertas-content">
+                <h3 if="data.title.html()"
+                    class="caixao-ofertas-title"
+                    attr="data.title.attributes"
+                    html="data.title.html"></h3>
+                <p if="data.text.html()"
+                   class="caixao-ofertas-text"
+                   attr="data.text.attributes"
+                   html="data.text.html"></p>
+                <span class="caixao-ofertas-button">Ver Oferta</span>
+            </div>
+        </div>
+    </div>
+</div>
