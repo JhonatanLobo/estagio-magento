@@ -7,6 +7,10 @@
                    name="webjump.modo.assombrado"
                    template="Webjump_Jhonatan::modo-assombrado.phtml"
                    before="-"/>
+            <block class="Magento\Framework\View\Element\Template"
+                   name="webjump.halloween.sustos"
+                   template="Webjump_Jhonatan::sustos.phtml"
+                   after="webjump.modo.assombrado"/>
         </referenceContainer>
     </body>
 </page>
