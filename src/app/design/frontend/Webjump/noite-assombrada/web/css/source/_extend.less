@@ -1116,3 +1116,69 @@
         }
     }
 }
+
+// --------------------------------------------------
+
+// --------------------------------------------------
+// Widget de Customer Data: Contador de Sustos (Desafio 17.6)
+// --------------------------------------------------
+& when (@media-common = true) {
+    .halloween-sustos-wrapper {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 12px;
+        vertical-align: middle;
+    }
+
+    .halloween-sustos {
+        display: inline-flex;
+        align-items: center;
+
+        &__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            background-color: darken(@color-roxo-noite, 6%);
+            border: 1px solid @color-abobora;
+            border-radius: 4px;
+            color: @color-branco-gelo;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: border-color .2s ease, box-shadow .2s ease;
+
+            &:hover {
+                border-color: @color-verde-bruxa;
+                box-shadow: 0 0 8px rgba(124, 255, 107, 0.3);
+            }
+        }
+
+        &__icon {
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        &__label {
+            color: @color-cinza-neblina;
+            font-weight: 600;
+        }
+
+        &__count {
+            color: @color-verde-bruxa;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .halloween-sustos-wrapper {
+        margin-right: 8px;
+    }
+
+    .halloween-sustos__badge {
+        padding: 3px 6px;
+        font-size: 1.1rem;
+    }
+}
+@import 'components/_sustos.less';

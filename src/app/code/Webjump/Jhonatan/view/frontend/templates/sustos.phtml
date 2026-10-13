@@ -1,0 +1,21 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ */
+?>
+<div class="halloween-sustos-wrapper" data-bind="scope: 'halloweenSustos'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "halloweenSustos": {
+                    "component": "Webjump_Jhonatan/js/sustos"
+                }
+            }
+        }
+    }
+}
+</script>

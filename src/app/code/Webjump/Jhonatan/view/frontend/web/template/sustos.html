@@ -1,0 +1,31 @@
+<div class="halloween-sustos" role="status" aria-live="polite">
+    <!-- Badge no Cabecalho -->
+    <div class="halloween-sustos__badge"
+         data-bind="tremor: { intensity: 'baixa', duration: 800, trigger: 'hover' }, attr: { title: mensagem }">
+        <span class="halloween-sustos__icon" aria-hidden="true">&#x1F47B;</span>
+        <span class="halloween-sustos__label" data-bind="i18n: 'Sustos:'"></span>
+        <span class="halloween-sustos__count" data-bind="text: total"></span>
+    </div>
+
+    <!-- Fantasma Easter Egg Espacado (Sem conflito de animacoes) -->
+    <!-- ko if: easterEggVisivel -->
+    <div class="halloween-easter-egg"
+         data-bind="click: clicarEasterEgg,
+                    style: { top: posicaoTop, left: posicaoLeft }"
+         title="Um espírito misterioso... Clique se tiver coragem! 👻"
+         aria-label="Espírito de Halloween">
+        <div class="halloween-easter-egg__bubble">
+            <span class="halloween-easter-egg__icon" aria-hidden="true">&#x1F47B;</span>
+        </div>
+    </div>
+    <!-- /ko -->
+
+    <!-- Voo do Fantasma com Lamparina (Animacao do Susto) -->
+    <!-- ko if: animando -->
+    <div class="halloween-fantasma-susto" aria-hidden="true">
+        <img class="halloween-fantasma-susto__img"
+             data-bind="attr: { src: ghostImageUrl }"
+             alt="Fantasma do Susto" />
+    </div>
+    <!-- /ko -->
+</div>
