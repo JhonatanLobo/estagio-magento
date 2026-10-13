@@ -1,0 +1,184 @@
+//
+// Widget de Customer Data, Easter Egg e Animacao do Susto
+// --------------------------------------------------
+& when (@media-common = true) {
+    // 1. Badge no Cabecalho
+    .halloween-sustos-wrapper {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 12px;
+        vertical-align: middle;
+    }
+
+    .halloween-sustos {
+        display: inline-flex;
+        align-items: center;
+
+        &__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            background-color: darken(@color-roxo-noite, 6%);
+            border: 1px solid @color-abobora;
+            border-radius: 4px;
+            color: @color-branco-gelo;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: border-color .2s ease, box-shadow .2s ease;
+
+            &:hover {
+                border-color: @color-verde-bruxa;
+                box-shadow: 0 0 8px rgba(124, 255, 107, 0.3);
+            }
+        }
+
+        &__icon {
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        &__label {
+            color: @color-cinza-neblina;
+            font-weight: 600;
+        }
+
+        &__count {
+            color: @color-verde-bruxa;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+    }
+
+    // 2. Easter Egg (Entrada suave e flutuacao sem tremores)
+    @keyframes easter-egg-entrada {
+        0% {
+            opacity: 0;
+            transform: scale(0.6);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes flutuar-suave {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-8px);
+        }
+    }
+
+    .halloween-easter-egg {
+        position: fixed;
+        z-index: 99999;
+        cursor: pointer;
+        user-select: none;
+        animation: easter-egg-entrada 0.4s ease-out forwards;
+
+        &__bubble {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(124, 255, 107, 0.4) 0%, rgba(42, 27, 61, 0.9) 75%);
+            border: 2px dashed @color-verde-bruxa;
+            box-shadow: 0 0 16px rgba(124, 255, 107, 0.6);
+            animation: flutuar-suave 2.5s ease-in-out infinite;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+
+            &:hover {
+                transform: scale(1.2);
+                border-color: @color-abobora;
+                box-shadow: 0 0 22px rgba(255, 107, 26, 0.85);
+            }
+        }
+
+        &__icon {
+            font-size: 2.2rem;
+            line-height: 1;
+        }
+    }
+
+    // 3. Voo Suave e Cadenciado do Fantasma (4.5s)
+    @keyframes voo-do-fantasma {
+        0% {
+            left: -320px;
+            top: 48%;
+            transform: translateY(0) rotate(-4deg) scale(0.9);
+            opacity: 0;
+        }
+        10% {
+            opacity: 1;
+            transform: translateY(-25px) rotate(3deg) scale(1);
+        }
+        28% {
+            top: 36%;
+            transform: translateY(20px) rotate(-6deg) scale(1.05);
+        }
+        48% {
+            top: 50%;
+            transform: translateY(-25px) rotate(5deg) scale(1.1);
+        }
+        68% {
+            top: 35%;
+            transform: translateY(22px) rotate(-5deg) scale(1.05);
+        }
+        88% {
+            opacity: 1;
+            transform: translateY(-12px) rotate(3deg) scale(1);
+        }
+        100% {
+            left: calc(100vw + 90px);
+            top: 44%;
+            transform: translateY(0) rotate(0deg) scale(0.95);
+            opacity: 0;
+        }
+    }
+
+    .halloween-fantasma-susto {
+        position: fixed;
+        z-index: 999999;
+        pointer-events: none;
+        width: 260px;
+        height: auto;
+        animation: voo-do-fantasma 4.5s cubic-bezier(0.35, 0, 0.25, 1) forwards;
+
+        &__img {
+            display: block;
+            width: 100%;
+            height: auto;
+            mix-blend-mode: screen;
+            filter: drop-shadow(0 0 20px rgba(255, 180, 0, 0.5));
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .halloween-sustos-wrapper {
+        margin-right: 8px;
+    }
+
+    .halloween-sustos__badge {
+        padding: 3px 6px;
+        font-size: 1.1rem;
+    }
+
+    .halloween-easter-egg__bubble {
+        width: 40px;
+        height: 40px;
+
+        .halloween-easter-egg__icon {
+            font-size: 1.8rem;
+        }
+    }
+
+    .halloween-fantasma-susto {
+        width: 180px;
+        animation-duration: 4.0s;
+    }
+}
