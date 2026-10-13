@@ -1010,3 +1010,109 @@
 }
 
 @import 'components/_pagebuilder-caixao-ofertas.less';
+
+& when (@media-common = true) {
+    @keyframes spooky-tremor-baixa {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        20% { transform: translate(-2px, 1px) rotate(-1deg); }
+        40% { transform: translate(2px, -1px) rotate(1deg); }
+        60% { transform: translate(-1px, 2px) rotate(0deg); }
+        80% { transform: translate(1px, -2px) rotate(1deg); }
+    }
+
+    @keyframes spooky-tremor-media {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        20% { transform: translate(-4px, 2px) rotate(-2deg); }
+        40% { transform: translate(4px, -2px) rotate(2deg); }
+        60% { transform: translate(-2px, 3px) rotate(-1deg); }
+        80% { transform: translate(3px, -3px) rotate(1.5deg); }
+    }
+
+    @keyframes spooky-tremor-alta {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        15% { transform: translate(-6px, 4px) rotate(-3.5deg); }
+        30% { transform: translate(6px, -4px) rotate(3.5deg); }
+        45% { transform: translate(-5px, 5px) rotate(-2deg); }
+        60% { transform: translate(5px, -5px) rotate(2.5deg); }
+        75% { transform: translate(-3px, 3px) rotate(-1deg); }
+    }
+
+    .spooky-tremor-active {
+        display: inline-block !important;
+        will-change: transform;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+
+        &.spooky-tremor--baixa { animation-name: spooky-tremor-baixa; }
+        &.spooky-tremor--media { animation-name: spooky-tremor-media; }
+        &.spooky-tremor--alta { animation-name: spooky-tremor-alta; }
+    }
+}
+
+// --------------------------------------------------
+// Custom Binding Knockout: Efeito de Tremor (Desafio 17.5)
+// --------------------------------------------------
+& when (@media-common = true) {
+
+    // Ciclo rapido de 120ms para criar a sensacao real de tremor/choque
+    @keyframes spooky-tremor-baixa {
+        0%, 100% { transform: translate(0, 0); }
+        25% { transform: translate(-1px, 1px) rotate(-0.5deg); }
+        50% { transform: translate(1px, -1px) rotate(0.5deg); }
+        75% { transform: translate(-1px, -1px); }
+    }
+
+    @keyframes spooky-tremor-media {
+        0%, 100% { transform: translate(0, 0); }
+        20% { transform: translate(-2px, 1px) rotate(-1.5deg); }
+        40% { transform: translate(2px, -1px) rotate(1.5deg); }
+        60% { transform: translate(-2px, 2px) rotate(-1deg); }
+        80% { transform: translate(2px, -2px) rotate(1deg); }
+    }
+
+    @keyframes spooky-tremor-alta {
+        0%, 100% { transform: translate(0, 0); }
+        15% { transform: translate(-4px, 2px) rotate(-3deg); }
+        30% { transform: translate(4px, -2px) rotate(3deg); }
+        50% { transform: translate(-3px, 3px) rotate(-2deg); }
+        70% { transform: translate(3px, -3px) rotate(2deg); }
+        85% { transform: translate(-2px, -1px); }
+    }
+
+    .spooky-tremor-active {
+        will-change: transform;
+        animation-duration: 120ms !important;
+        animation-timing-function: linear !important;
+        animation-iteration-count: infinite !important;
+
+        &.spooky-tremor--baixa { animation-name: spooky-tremor-baixa; }
+        &.spooky-tremor--media { animation-name: spooky-tremor-media; }
+        &.spooky-tremor--alta  { animation-name: spooky-tremor-alta; }
+    }
+
+    // Permite transformacao em elementos inline (como o icone do contador)
+    span.spooky-tremor-active,
+    a.spooky-tremor-active {
+        display: inline-block !important;
+    }
+
+    // Correcao estrutural da mensagem no minicart (largura total e isolada dos floats)
+    .minicart-wrapper {
+        .mensagem-assombrada {
+            display: block !important;
+            clear: both !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            margin: 10px 0 !important;
+            padding: 8px 12px !important;
+            background-color: darken(@color-roxo-noite, 4%) !important;
+            border: 1px solid @color-abobora !important;
+            border-radius: 4px !important;
+            color: @color-verde-bruxa !important;
+            font-size: 1.2rem !important;
+            font-weight: 700 !important;
+            text-align: center !important;
+            cursor: pointer;
+        }
+    }
+}

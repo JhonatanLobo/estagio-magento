@@ -1,6 +1,7 @@
 var config = {
     deps: [
-        'Webjump_Jhonatan/js/modo-assombrado'
+        'Webjump_Jhonatan/js/modo-assombrado',
+        'Webjump_Jhonatan/js/bindings/tremor'
     ],
     config: {
         mixins: {

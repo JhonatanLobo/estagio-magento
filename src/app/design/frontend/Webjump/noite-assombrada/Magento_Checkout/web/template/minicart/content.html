@@ -17,7 +17,7 @@
 </div>
 
 <div class="block-content">
-            <div class="mensagem-assombrada" data-bind="text: mensagemAssombrada" role="status" aria-live="polite"></div>
+            <div class="mensagem-assombrada" data-bind="text: mensagemAssombrada, tremor: { intensity: 'media', duration: 1000, trigger: 'hover' }" role="status" aria-live="polite"></div>
     <button type="button"
             id="btn-minicart-close"
             class="action close"
